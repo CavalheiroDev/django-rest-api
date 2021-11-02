@@ -12,5 +12,5 @@ class ProductViewSet(GenericViewSet):
             queryset = Product.objects.filter(code=code)
         return queryset
 
-    def post(self, request):
+    def create(self, request):
         print(request.data)
