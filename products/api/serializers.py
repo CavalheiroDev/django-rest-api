@@ -3,9 +3,6 @@ from products.models import Product
 
 
 class ProductSerializer(serializers.ModelSerializer):
-    product_category = serializers.ChoiceField(
-        choices=Product.PRODUCT_CATEGORY, required=False)
-
     class Meta:
         model = Product
         fields = '__all__'
