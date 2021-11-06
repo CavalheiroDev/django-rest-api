@@ -8,8 +8,9 @@ class ProductSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
     def create(self, validated_data: dict):
+        product_category = validated_data.get('product_category', None)
 
-        if 'product_category' in validated_data:
+        if product_category:
             product = Product.objects.create(**validated_data)
         elif validated_data.get('price') <= 100:
             product = Product.objects.create(code=validated_data.get('code'),
